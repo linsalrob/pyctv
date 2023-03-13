@@ -5,7 +5,7 @@
 import os
 import sys
 import argparse
-from pyctv_lib import parse_vmr, genbank2vmr, refseq2vmr, current_vmr, package_directory
+from pyctv_lib import parse_vmr, genbank2vmr, refseq2vmr, current_vmr, package_directory, __version__
 
 __author__ = 'Rob Edwards'
 
@@ -49,6 +49,4 @@ def run():
         exit(0)
 
     if args.command == 'version':
-        with open(os.path.join(package_directory, "VERSION"), "r") as ver:
-            l = ver.read().strip()
-        print(l)
+        print(__version__)
