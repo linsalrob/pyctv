@@ -131,3 +131,6 @@ dmypy.json
 
 # PyCharm
 .idea/
+
+# No point in keeping the excel files ... we can download new ones!
+VMR/*.xlsx
