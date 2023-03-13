@@ -1,66 +1,85 @@
 
 
 class VMR:
-    def __init__(self, version):
-        self.version = 'unknown'
+    """
+    A record from the VMR file.
 
+    We store all the information from the VMR file as these objects.
 
+    There is a major caveat: `class` is a reserved word, so we use tax_class. Then for consistency we use
+    tax_ for all the other names too.
+    """
+    def __init__(self, species_sort: str = None, isolate_sort: str = None, realm: str = None, subrealm: str = None,
+                 kingdom: str = None, subkingdom: str = None, phylum: str = None, subphylum: str = None,
+                 tax_class: str = None, subclass: str = None, order: str = None, suborder: str = None,
+                 family: str = None, subfamily: str = None, genus: str = None, subgenus: str = None,
+                 species: str = None, exemplar_or_additional_isolate: str = None, virus_name: str = None,
+                 virus_name_abbreviation: str = None, virus_isolate_designation: str = None,
+                 virus_genbank_accession: str = None, virus_refseq_accession: str = None, genome_coverage: str = None,
+                 genome_composition: str = None, host_source: str = None):
+        """
+        Define a new VMR object
+        """
+        self.species_sort = species_sort
+        self.isolate_sort = isolate_sort
+        self.realm = realm
+        self.subrealm = subrealm
+        self.kingdom = kingdom
+        self.subkingdom = subkingdom
+        self.phylum = phylum
+        self.subphylum = subphylum
+        self.tax_class = tax_class
+        self.subclass = subclass
+        self.order = order
+        self.suborder = suborder
+        self.family = family
+        self.subfamily = subfamily
+        self.genus = genus
+        self.subgenus = subgenus
+        self.species = species
+        self.tax_realm = realm
+        self.tax_subrealm = subrealm
+        self.tax_kingdom = kingdom
+        self.tax_subkingdom = subkingdom
+        self.tax_phylum = phylum
+        self.tax_subphylum = subphylum
+        self.tax_subclass = subclass
+        self.tax_order = order
+        self.tax_suborder = suborder
+        self.tax_family = family
+        self.tax_subfamily = subfamily
+        self.tax_genus = genus
+        self.tax_subgenus = subgenus
+        self.tax_species = species
+        self.exemplar_or_additional_isolate = exemplar_or_additional_isolate
+        self.virus_name = virus_name
+        self.virus_name_abbreviation = virus_name_abbreviation
+        self.virus_isolate_designation = virus_isolate_designation
+        self.virus_genbank_accession = virus_genbank_accession
+        self.virus_refseq_accession = virus_refseq_accession
+        self.genome_coverage = genome_coverage
+        self.genome_composition = genome_composition
+        self.host_source = host_source
 
+    def __str__(self):
+        s = f"r__{self.realm};k__{self.kingdom};p__{self.phylum};c__{self.tax_class};o__{self.order};"
+        s += f"f__{self.family};g__{self.genus};s__{self.species}"
+        return s
 
+    def __eq__(self, other):
+        return 0
 
-self.species_sort = "unknown"
-self.isolate_sort = "unknown"
-self.realm = "unknown"
-self.subrealm = "unknown"
-self.kingdom = "unknown"
-self.subkingdom = "unknown"
-self.phylum = "unknown"
-self.subphylum = "unknown"
-self.class = "unknown"
-self.subclass = "unknown"
-self.order = "unknown"
-self.suborder = "unknown"
-self.family = "unknown"
-self.subfamily = "unknown"
-self.genus = "unknown"
-self.subgenus = "unknown"
-self.species = "unknown"
-self.exemplar_or_additional_isolate = "unknown"
-self.virus_name = "unknown"
-self.virus_name_abbreviation = "unknown"
-self.virus_isolate_designation = "unknown"
-self.virus_genbank_accession = "unknown"
-self.virus_refseq_accession = "unknown"
-self.genome_coverage = "unknown"
-self.genome_composition = "unknown"
-self.host_source = "unknown"
+    def __repr__(self):
+        return str(self.__dict__)
 
-species_sort = None
-isolate_sort = None
-tax_realm = None
-tax_subrealm = None
-tax_kingdom = None
-tax_subkingdom = None
-tax_phylum = None
-tax_subphylum = None
-tax_class = None
-tax_subclass = None
-tax_order = None
-tax_suborder = None
-tax_family = None
-tax_subfamily = None
-tax_genus = None
-tax_subgenus = None
-tax_species = None
-exemplar_or_additional_isolate = None
-virus_name = None
-virus_name_abbreviation = None
-virus_isolate_designation = None
-virus_genbank_accession = None
-virus_refseq_accession = None
-genome_coverage = None
-genome_composition = None
-host_source = None
+    def __hash__(self):
+        return hash(repr(self))
 
-    
-    
+    def tsv(self):
+        s = f"r__{self.realm}\tk__{self.kingdom}\tp__{self.phylum}\tc__{self.tax_class}\to__{self.order}\t"
+        s += f"f__{self.family}\tg__{self.genus}\ts__{self.species}"
+        return s
+
+    def set_attributes(self, d):
+        for k, v in d.items():
+            setattr(self, k, v)
