@@ -7,8 +7,9 @@ from pathlib import Path
 from collections import OrderedDict
 
 lib_directory = os.path.dirname(os.path.abspath(__file__))
-package_directory = Path(lib_directory).parent.absolute()
-
+# package_directory = Path(lib_directory).parent.absolute()
+# for release, we will write the VMR file to the same directory as the library files
+package_directory = lib_directory
 
 def excel_columns():
     cols = OrderedDict()

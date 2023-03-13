@@ -1,2 +1,3 @@
 include *.md LICENSE VERSION 
 recursive-include pyctv_lib *py
+recursive-include VMR *.md
