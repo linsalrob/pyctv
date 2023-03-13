@@ -40,7 +40,6 @@ def main():
         author_email="raedwards@gmail.com",
         url='https://github.com/linsalrob/pyctv',
         license='The MIT License (MIT)',
-        scripts=['vmr.py'],
         packages=setuptools.find_packages(),
         include_package_data=True,
         classifiers=[
