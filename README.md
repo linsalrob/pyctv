@@ -2,6 +2,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![GitHub language count](https://img.shields.io/github/languages/count/linsalrob/pyctv)
 [![PyPi](https://img.shields.io/pypi/pyversions/pyctv_taxonomy.svg?style=flat-square&label=PyPi%20Versions)](https://pypi.org/project/pyctv_taxonomy/)
+[![DOI](https://www.zenodo.org/badge/611956728.svg)](https://www.zenodo.org/badge/latestdoi/611956728)
 
 
 
@@ -53,6 +54,16 @@ List all the viruses separated by semi-colons:
 
 # Install
 
-You can `pip install pyctv_taxonomy` to get the latest version. A conda install will be coming soon!
+You can `pip install pyctv_taxonomy` to get the latest version. 
 
+A conda install will be coming soon!
 
+# Citing PyCTV
+
+If you use PyCTV please cite:
+
+```
+Edwards, Robert A. (2023) PyCTV: A library for accessing the ICTV Virus Metadata Resource. Zenodo. DOI: https://doi.org/10.5281/zenodo.7728567
+```
+
+	
