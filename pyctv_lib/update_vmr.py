@@ -71,10 +71,10 @@ def current_vmr(force_download: bool = False, verbose: bool = False) -> str:
             message(f"The error was {e.strerror}", "RED")
             sys.exit(2)
 
-    if not os.path.exists(package_directory):
+    if not os.path.exists(os.path.join(package_directory, "VMR")):
         if verbose:
-            message(f"Making a directory for the files in {package_directory}", "BLUE")
-        os.makedirs(package_directory, exist_ok=True)
+            message(f"Making a directory for the files in {package_directory}/VMR", "BLUE")
+        os.makedirs(os.path.join(package_directory, "VMR"), exist_ok=True)
 
     r = requests.get(VMR_URL)
 
