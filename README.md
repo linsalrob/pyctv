@@ -44,6 +44,6 @@ List all the viruses separated by semi-colons:
 
 # Install
 
-You can `pip` install PyCTV
+You can `pip install pyctv_taxonomy` to get the latest version. A conda install will be coming soon!
 
 

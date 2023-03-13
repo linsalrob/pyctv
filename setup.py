@@ -29,7 +29,7 @@ def get_requirements():
 
 def main():
     setuptools.setup(
-        name="pyctv",
+        name="pyctv_taxonomy",
         version=get_version(),
         description="Download ICTV Virus Classifications as Python Objects",
         long_description=long_description,
@@ -58,7 +58,7 @@ def main():
             'openpyxl >= 3.1.2'
         ],
         entry_points={
-            "console_scripts": ["PyCTV.py = pyctv_lib.pyctv:run", "pyctv.py = pyctv_lib.pyctv:run"]
+            "console_scripts": ["pyctv_taxonomy.py = pyctv_lib.pyctv:run", "pyctv.py = pyctv_lib.pyctv:run"]
         }
 
     )
