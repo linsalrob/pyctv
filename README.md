@@ -1,4 +1,13 @@
-# PyCTV
+[![Edwards Lab](https://img.shields.io/badge/Bioinformatics-EdwardsLab-03A9F4)](https://edwards.flinders.edu.au/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+![GitHub language count](https://img.shields.io/github/languages/count/linsalrob/pyctv)
+[![PyPi](https://img.shields.io/pypi/pyversions/pyctv_taxonomy.svg?style=flat-square&label=PyPi%20Versions)](https://pypi.org/project/pyctv_taxonomy/)
+
+
+
+# PyCTV Taxonomy
+
+_We don't create the taxonomy, we just use it!_
 
 The [ICTV](https://ictv.global/) [Virus Metadata Resource](https://ictv.global/vmr) contains an upto date taxonomy of viruses in Excel sheets. We parse that information, and make it available through a Python API
 
