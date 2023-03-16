@@ -41,3 +41,31 @@ def excel_columns():
     cols['Host source'] = 'host_source'
 
     return cols
+
+def split_entries(val: str, verbose: bool = False):
+    """
+    Split the genbank ian refseq entries 
+    """
+    
+    if not val:
+        return []
+
+    try:
+        data = [x.strip() for x in val.split(";")]
+    except:
+        print(f"\nERROR Trying to split {val}", file=sys.stderr)
+        sys.exit(1)
+    if ":" in val:
+        if verbose:
+            print(f"Splitting {val}", file=sys.stderr)
+        temp = []
+        for d in data:
+            if ":" in d:
+                p = d.split(":")
+                temp.append(p[1].strip())
+            else:
+                temp.append(d)
+        data = temp
+    
+    return data
+        
