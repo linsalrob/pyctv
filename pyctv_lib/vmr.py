@@ -1,4 +1,4 @@
-
+from .helper import split_entries
 
 class VMR:
     """
@@ -9,6 +9,8 @@ class VMR:
     There is a major caveat: `class` is a reserved word, so we use tax_class. Then for consistency we use
     tax_ for all the other names too.
     """
+
+
     def __init__(self, species_sort: str = None, isolate_sort: str = None, realm: str = None, subrealm: str = None,
                  kingdom: str = None, subkingdom: str = None, phylum: str = None, subphylum: str = None,
                  tax_class: str = None, subclass: str = None, order: str = None, suborder: str = None,
@@ -61,6 +63,10 @@ class VMR:
         self.genome_composition = genome_composition
         self.host_source = host_source
 
+        self.genbank_ids = split_entries(virus_genbank_accession)
+        self.refseq_ids  = split_entries(virus_refseq_accession)
+    
+
     def __str__(self):
         s = f"r__{self.realm};k__{self.kingdom};p__{self.phylum};c__{self.tax_class};o__{self.order};"
         s += f"f__{self.family};g__{self.genus};s__{self.species}"
@@ -83,3 +89,10 @@ class VMR:
     def set_attributes(self, d):
         for k, v in d.items():
             setattr(self, k, v)
+        
+        self.genbank_ids = split_entries(self.virus_genbank_accession)
+        self.refseq_ids  = split_entries(self.virus_refseq_accession)
+    
+    def get_attribute(self, a):
+        return getattr(self, a)
+
