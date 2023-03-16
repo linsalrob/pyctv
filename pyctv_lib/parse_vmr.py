@@ -2,6 +2,7 @@
 Parse the VMR file and return a set (list?) of VMR objects
 """
 
+import sys
 from openpyxl import load_workbook
 from .update_vmr import current_vmr
 from .vmr import VMR
@@ -75,7 +76,8 @@ def genbank2vmr(vmrs: list = None, verbose: bool = False) -> dict:
         vmr_list = parse_vmr(verbose=verbose)
 
     for v in vmr_list:
-        gb2vmr[v.virus_genbank_accession] = v
+        for acc in v.genbank_ids:
+            gb2vmr[acc] = v
     return gb2vmr
 
 
@@ -97,5 +99,6 @@ def refseq2vmr(vmrs: list = None, verbose: bool = False) -> dict:
         vmr_list = parse_vmr(verbose=verbose)
 
     for v in vmr_list:
-        rf2vmr[v.virus_refseq_accession] = v
+        for acc in v.refseq_ids:
+            rf2vmr[acc] = v
     return rf2vmr
